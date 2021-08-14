@@ -20,6 +20,14 @@ class EmployeeList(generics.ListAPIView):
     # search_fields = ['manager', 'location']
     search_fields = ['^desig']
 
+    #queryset = Employee.objects.filter(location='delhi')
+    # filterset_fields = ['manager']
+    # filterset_fields = ['id', 'desig']
+    # def get_queryset(self):
+        # current user
+        # user = self.request.user 
+        # return Employee.objects.filter(manager=user)
+
 class EmployeeCreate(generics.CreateAPIView):
     """
     Create a new employee in the system
@@ -47,12 +55,3 @@ class EmployeeDelete(generics.DestroyAPIView):
     """
     queryset = Employee
     serializer_class = EmployeeSerializer
-
-
-    #queryset = Employee.objects.filter(location='delhi')
-    # filterset_fields = ['manager']
-    # filterset_fields = ['id', 'desig']
-    # def get_queryset(self):
-        # current user
-        # user = self.request.user 
-        # return Employee.objects.filter(manager=user)
