@@ -22,6 +22,7 @@ from rest_framework.documentation import include_docs_urls
 from django.views.generic import TemplateView
 
 urlpatterns = [
+    path('', TemplateView.as_view(template_name='index.html')),
     path('api/employees/', EmployeeList.as_view()),
     path('api/employee/create', EmployeeCreate.as_view()),
     # path('api/employee/retrieve/<int:pk>', EmployeeRetrieve.as_view()),
@@ -32,8 +33,8 @@ urlpatterns = [
         title="Employee_CRUD_API",
         description="Basic API for CRUD operations"
     ), name='openapi-schema'),
-    path('swagger-ui/', TemplateView.as_view(
-        template_name='doc.html',
-        extra_context={'schema_url':'openapi-schema'}
-    ), name='api_doc'),
+    # path('swagger-ui/', TemplateView.as_view(
+    #     template_name='doc.html',
+    #     extra_context={'schema_url':'openapi-schema'}
+    # ), name='api_doc'),
 ]
